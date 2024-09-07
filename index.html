@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>yo</title>
+    </head>
+    <body>
+        <video id="camera_1" width="500px" controls></video>
+        <video id="camera_2" width="500px" controls></video>
+        <script src="http://cdn.dashjs.org/v3.1.0/dash.all.min.js"></script>
+        <script>
+            (function(){
+                const player1 = dashjs.MediaPlayer().create();
+                const stream1 = "http://127.0.0.1:8080/dash/camera_1/stream.mpd";
+                player1.initialize(document.querySelector("#camera_1"), stream1, true);
+
+                const player2 = dashjs.MediaPlayer().create();
+                const stream2 = "http://127.0.0.1:8080/dash/camera_2/stream.mpd";
+                player2.initialize(document.querySelector("#camera_2"), stream2, true);
+            })();
+        </script>
+    </body>
+</html>
